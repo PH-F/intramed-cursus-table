@@ -1,0 +1,63 @@
+.cursusTable{
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    border-width:1px!important;
+}
+.cursusTable thead th{
+    margin-bottom: 10px;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: bold;
+    background: #008B97;
+    border-width: 0;
+    text-align: left;
+}
+.cursusTable thead tr th:last-child{
+    width: 220px;
+}
+.cursusTable tbody td{
+    padding: 10px 30px;
+    overflow: hidden;
+    line-height: 28px;
+    font-size: 14px;
+    border-width: 0;
+}
+.cursusTable tbody tr:nth-child(even){
+    background: #f3f3f3;
+}
+@media screen and (max-width: 600px){
+    .cursusTable thead{
+        display: none;
+    }
+    .cursusTable, .cursusTable tbody, .cursusTable tr, .cursusTable td{
+        display: block;
+        width: 100%;
+    }
+    .cursusTable tr{
+        margin-bottom: 15px;
+    }
+    .cursusTable td{
+        text-align: left;
+        padding-left: 50%!important;
+        position: relative;
+    }
+    .cursusTable td:before{
+        content: attr(data-label);
+        position: absolute;
+        text-align: right;
+        left: 0;
+        width: 40%;
+        padding-left: 15px;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .cursusTable tbody tr td:last-child{
+        padding: 0 20px !important;
+    }
+    .cursusTable tbody tr td:last-child a{
+        width: 100%;
+    text-align: center;
+    }
+
+}
