@@ -231,7 +231,7 @@ function wpc_intramed_downloads($attr)
                 $html .= '<td>' . implode(', ', $term) . '</td>';
                 $html .= '<td class="clickable">' . $download->get_version()->get_version_number() . '</td>';
                 $html .= '<td><img alt="" src="/wp-content/plugins/intramed-cursus-table/assets/images/icon-'. $extension.'.png" >.'. $extension.'</td></td>';
-                $html .= '<td class="clickable"><a class="download-link" href="' . $download->get_the_download_link() . '">Download</a></td>';
+                $html .= '<td class="clickable"><a class="download-link" href="#" rel="' . $download->get_the_download_link() . '">Download</a></td>';
                 $html .= '</tr>';
                 $html .= '<tr><td colspan="5"></td></tr>';
             }
@@ -240,7 +240,7 @@ function wpc_intramed_downloads($attr)
             $html .= '</div></div>';
             $html .= "<script> jQuery(document).ready(function () {
                 jQuery('table.download-overview tbody tr td.clickable').on('click', function (event) {
-                var download_url = jQuery('a.download-link', jQuery(this).parent()).attr('href');
+                var download_url = jQuery('a.download-link', jQuery(this).parent()).attr('rel');
                 window.open(download_url, '_blank');
             }); });</script>";
             $html .= '<div class="pagingBox">';
