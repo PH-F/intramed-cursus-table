@@ -409,7 +409,8 @@ function custom_confirmation($confirmation, $form, $lead, $ajax)
 
             if (get_sub_field("datum_van") == $datum_van && get_sub_field("datum_tot") == $datum_tot && is_array($acf_location) && $acf_location[1] == $locatie) {
                 $bezette_plaatsen = (int)get_sub_field("bezette_plaatsen");
-                $new_bezette_plaatsen = (int)$bezette_plaatsen + (int)$form_bezette_plaatsen;
+//                $new_bezette_plaatsen = (int)$bezette_plaatsen + (int)$form_bezette_plaatsen;
+                $new_bezette_plaatsen = $bezette_plaatsen+1;
                 update_sub_field("bezette_plaatsen", $new_bezette_plaatsen);
             }
         }
