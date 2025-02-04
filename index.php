@@ -447,11 +447,16 @@ function get_subfilters() {
 add_shortcode('intramed_cursus_table', 'wpc_intramed_cursus_table');
 add_shortcode('intramed_cursus_form', 'wpc_intramed_cursus_form');
 add_shortcode('intramed_downloads', 'wpc_intramed_downloads');
-wp_enqueue_style('cursusTable', plugin_dir_url(__FILE__) . 'assets/css/cursus.css');
-wp_enqueue_style('downloads', plugin_dir_url(__FILE__) . 'assets/css/downloads.css');
+
+function cursus_scripts()
+{
+    wp_enqueue_style('cursusTable', plugin_dir_url(__FILE__) . 'assets/css/cursus.css');
+    wp_enqueue_style('downloads', plugin_dir_url(__FILE__) . 'assets/css/downloads.css');
+}
 
 $form_id = (isset($_GET["form_id"])) ? esc_attr(urldecode($_GET["form_id"])) : null;
 add_filter("gform_confirmation_" . $form_id, "custom_confirmation", 3, 4);
 
 add_action( 'wp_ajax_get_subfilters', 'get_subfilters' );
 add_action( 'wp_ajax_nopriv_get_subfilters', 'get_subfilters' );
+add_action( 'wp_enqueue_scripts', 'cursus_scripts' );
